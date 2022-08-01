@@ -17,9 +17,9 @@
                         <li class="list-group-item"><h6>Dauer</h6> {{ film.laenge }}
                         </ul>
                         <div class="card-body">
-                        <a href="#" class="btn btn-primary">Infos</a>
-                        <a href="#" class="btn btn-secondary">Bearbeiten</a>
-                        <a href="#" class="btn btn-danger">Löschen</a>
+                        <a href="{{ url_for('main.display_film', film_id = film.id )}}" class="btn btn-primary">Infos</a>
+                        <a href="{{ url_for('main.edit_film', film_id = film.id )}}" class="btn btn-secondary">Bearbeiten</a>
+                        <a href="{{ url_for('main.delete_film', film_id = film.id )}}" class="btn btn-danger">Löschen</a>
                         </div>
                     </div>
                 </div>
