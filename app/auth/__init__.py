@@ -1,5 +1,5 @@
-import os
-from flask import Flask
-from flask_sqlalchemy import SQLAlchemy
+from flask import Blueprint
 
-db = SQLAlchemy()
+authentication = Blueprint('authentication', __name__, template_folder="templates")
+
+from app.auth import routes #crossreferencing to routes -> daher am Ende
