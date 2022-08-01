@@ -1,14 +1,32 @@
-.container-navbar{
-    display: inline;
+.navbar-brand {
+    letter-spacing: 3px;
+    color: whitesmoke;
+  }
+  
+  .navbar-brand:hover {
+    font-style: bold;
+  }
+  
+  .navbar-scroll .nav-link,
+  .navbar-scroll .fa-bars {
+    color: whitesmoke;
+  }
+  
+  .navbar-scrolled .nav-link,
+  .navbar-scrolled .fa-bars {
+    color: whitesmoke;
+  }
+  
+  .navbar-scrolled {
+    background-color: #ffede7;
+  }
+
+.btn-outline-secondary{
+    color:whitesmoke;
 }
 
-.navbar-brand { 
-    display: inline-block;
-}
-
-.navbar-li{
-    display: inline;
-    color: white;
+.btn-outline-secondary:hover{
+    color:whitesmoke;
 }
 
 .card{
