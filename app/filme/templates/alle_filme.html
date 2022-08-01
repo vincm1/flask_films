@@ -1,0 +1,12 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    {% for film in filme %} 
+        <h1>{{film.titel}}</h1>
+        <h4>{{film.laenge}}</h4>
+        <h1>{{film.titel}}</h1>
+        <h1>{{film.image}}</h1>
+        <a class="btn btn-primary" href="{{ url_for('main.display_film', film_id=film.id)}}" role="button">Info</a>
+        <a class="btn btn-primary" href="{{ url_for('main.edit_film', film_id=film.id)}}" role="button">Edit</a>
+    {% endfor %}
+{% endblock %}

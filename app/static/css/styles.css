@@ -1,0 +1,22 @@
+.container-navbar{
+    display: inline;
+}
+
+.navbar-brand { 
+    display: inline-block;
+}
+
+.navbar-li{
+    display: inline;
+    color: white;
+}
+
+.movie-cards-row{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-top: 5px;
+}
+
+.card{
+}
