@@ -11,12 +11,14 @@
     color: white;
 }
 
-.movie-cards-row{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    margin-top: 5px;
+.card{
+    height:fit-content;
 }
 
-.card{
+.card-body{
+    text-align: center;
+}
+
+.list-group-item-tag{
+    font-style: bold;
 }

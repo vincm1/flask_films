@@ -1,20 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-<div class="movie-cards">
-    {% for film in filme %} 
-    <div class="movie-cards-row" >
-        <div class="card" style="width: 18rem;">
-            <img src="static/{{ film.image }}" alt="">
-            <div class="card-body">
-                <h1>{{film.titel}}</h1>
-                <h4>{{film.laenge}}</h4>
-                <a class="btn btn-primary" href="{{ url_for('main.display_film', film_id=film.id)}}" role="button">Info</a>
-                <a class="btn btn-primary" href="{{ url_for('main.edit_film', film_id=film.id)}}" role="button">Edit</a>
-                <a type="button" class="btn btn-danger" href="{{ url_for('main.delete_film', film_id=film.id)}}"> Löschen</a>   
-            </div>
-        </div>
+    <div class="container">
+        <div class="row py-3">
+            {% for film in filme %}
+                <div class="col-3">
+                    <div class="card">
+                        <img src="/static/img/{{ film.image }}" class="card-img-top" alt="...">
+                        <div class="card-body">
+                            <h5 class="card-title"> {{ film.titel }}</h5>
+                            <p class="card-text">{{ film.regie }}</p>
+                        </div>
+                        <ul class="list-group list-group-flush">
+                        <li class="list-group-item"><h6>Besetzung</h6> {{ film.schauspieler }}</li>
+                        <li class="list-group-item"><h6>Veröffentlichung</h6> {{ film.jahr }}</li>
+                        <li class="list-group-item"><h6>Dauer</h6> {{ film.laenge }}
+                        </ul>
+                        <div class="card-body">
+                        <a href="#" class="btn btn-primary">Infos</a>
+                        <a href="#" class="btn btn-secondary">Bearbeiten</a>
+                        <a href="#" class="btn btn-danger">Löschen</a>
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>        
     </div>
-    {% endfor %}
-</div>
 {% endblock %}

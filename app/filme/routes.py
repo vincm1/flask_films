@@ -23,6 +23,7 @@ def add_film():
         db.session.add(film)
         db.session.commit()
         flash("Success!")
+        return redirect (url_for('main.display_filme'))
     return render_template('add_film.html', form=form)
 
 @main.route('/film/<film_id>', methods=["GET", "POST"])
@@ -46,7 +47,7 @@ def edit_film(film_id):
 
         db.session.add(film)
         db.session.commit()
-        flash("Film hinzugefügt!")
+        flash("Film bearbeitet!")
         return redirect(url_for('main.display_filme'))
     return render_template('edit_film.html', film=film, film_id = film.id, form=form)
 

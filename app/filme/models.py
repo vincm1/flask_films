@@ -7,7 +7,7 @@ class Film(db.Model):
 
     id = db.Column(db.Integer, primary_key = True)
     titel = db.Column(db.String, index=True, nullable=False, unique=True)
-    laenge = db.Column(db.Float)
+    laenge = db.Column(db.Integer)
     regie = db.Column(db.String)
     preise = db.Column(db.String)
     jahr = db.Column(db.Integer)
