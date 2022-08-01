@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+    <div class="container">
+        <div class="card" >
+            <img src="static/{{ film.image }}" alt="">
+            <p> {{ film.titel}} </p>
+            <form action="{{ url_for('main.delete_film', film_id = film.id )}}" method="POST" style="margin-left: 60px">
+                <button type="submit" class="btn btn-danger"> Endgültig löschen? </button>
+            </form>
+        </div>
+    </div>
+{% endblock %}

@@ -1,6 +1,6 @@
 from app.filme import main
 from app import db
-from app.filme.forms import AddFilmForm
+from app.filme.forms import AddFilmForm, EditFilmForm
 from app.filme.models import Film
 from flask import render_template, flash, request, redirect, url_for
 
@@ -28,9 +28,34 @@ def add_film():
 @main.route('/film/<film_id>', methods=["GET", "POST"])
 def display_film(film_id):
     film = Film.query.get(film_id)
-    return render_template('film_einzel.html', film=film, film_id = film.id)
+    return render_template('film_einzel.html', film=film, film_id=film.id)
 
 @main.route('/edit/film/<film_id>', methods=["GET", "POST"])
 def edit_film(film_id):
     film = Film.query.get(film_id)
-    return render_template('film_einzel.html', film=film, film_id = film.id)
+    form = EditFilmForm(obj=film)
+    if form.validate_on_submit():
+        film.titel = form.titel.data
+        film.laenge = form.laenge.data
+        film.regie = form.regie.data
+        film.jahr = form.jahr.data
+        film.image = form.image.data
+        film.schauspieler = form.schauspieler.data
+        film.rating = form.rating.data
+        film.preise = form.preise.data
+
+        db.session.add(film)
+        db.session.commit()
+        flash("Film hinzugefügt!")
+        return redirect(url_for('main.display_filme'))
+    return render_template('edit_film.html', film=film, film_id = film.id, form=form)
+
+@main.route('/delete/film/<film_id>', methods=["GET", "POST"])
+def delete_film(film_id):
+    film = Film.query.get(film_id)
+    if request.method == "POST":
+        db.session.delete(film)
+        db.session.commit()
+        flash("Film gelöscht!")
+        return redirect(url_for('main.display_filme'))
+    return render_template('delete_film.html', film=film, film_id=film.id)
