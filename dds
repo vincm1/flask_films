@@ -1,0 +1,35 @@
+[33mcommit 9c23c386863a91663d6f29ea207b5d8e5c44ff03[m[33m ([m[1;36mHEAD -> [m[1;32mmain[m[33m, [m[1;31morigin/main[m[33m)[m
+Author: vincm1 <vincent.michler94@gmail.com>
+Date:   Mon Aug 1 20:00:12 2022 +0200
+
+    login form added
+
+[33mcommit 9e717988293aa35cd06bb3a43be747ee9f0b10cf[m
+Author: vincm1 <vincent.michler94@gmail.com>
+Date:   Mon Aug 1 19:33:32 2022 +0200
+
+    Some bug fixes and files for authentication
+
+[33mcommit 982435bdd13eea732d0385a3bb54ee52443d742c[m
+Author: vincm1 <vincent.michler94@gmail.com>
+Date:   Mon Aug 1 17:06:42 2022 +0200
+
+    Carousel added and cards reviewed
+
+[33mcommit 47fc9decc0111ff375e590134c5a57bd4c6282bb[m
+Author: vincm1 <vincent.michler94@gmail.com>
+Date:   Mon Aug 1 15:57:58 2022 +0200
+
+    Kleine fixes
+
+[33mcommit 7ccc6006fa2fc6802a9b5647409d3caab53a64f5[m
+Author: vincm1 <vincent.michler94@gmail.com>
+Date:   Mon Aug 1 12:59:45 2022 +0200
+
+    Delete movie function added
+
+[33mcommit b52fb0040b6bdcc94c6a9b92bf266ac654ddfe38[m
+Author: vincm1 <vincent.michler94@gmail.com>
+Date:   Mon Aug 1 09:31:21 2022 +0200
+
+    first commit
