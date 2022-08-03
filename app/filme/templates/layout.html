@@ -13,6 +13,13 @@
         </head>
     {% endblock head %}
 
+    {% for message in get_flashed_messages() %} 
+        <div class="container aler alert-info">
+          <button type="button" classe="close" data-dismiss="alert"></button>
+            {{ message }}
+        </div>
+    {% endfor %}
+
     {% block body %}
     <body>
       {% block navbar %}

@@ -6,6 +6,6 @@ if __name__ == '__main__':
     with flask_app.app_context():
         db.create_all()
         if not User.query.filter_by(user_name="MaxMuster").first():
-            User.create_user(user="MaxMuster", email="MaxMuster@gmail.com", password='secret')
+            User.create_user(user="MaxMuster", email="MaxMuster@gmail.com", passwort='secret')
     flask_app.run()
 
