@@ -3,7 +3,7 @@ from app import db, bcrypt
 from flask_login import UserMixin
 from app import login_manager
 
-class User(db.Model):
+class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
@@ -11,6 +11,9 @@ class User(db.Model):
     user_email = db.Column(db.String(100), unique=True)
     user_passwort = db.Column(db.String(80))
     registration_date = db.Column(db.DateTime, default=datetime.now)
+
+    def check_passwort(self, passwort):
+        return bcrypt.check_password_hash(self.user_passwort, passwort)
 
     # classmethods gehören zu einer Klasse, aber sind nicht verbunden mit Class Instanzen
     @classmethod

@@ -1,7 +1,8 @@
 from flask import render_template, flash, request, redirect, url_for
-from app.auth.forms import RegistrationForm
+from app.auth.forms import RegistrationForm, LoginForm
 from app.auth import authentication as auth
 from app.auth.models import User
+from flask_login import login_user, logout_user, login_required, current_user
 
 @auth.route('/registrieren', methods=['GET', 'POST'])
 def register_user():
@@ -14,10 +15,21 @@ def register_user():
             email = form.email.data,
             passwort = form.passwort.data)
         flash('Anmeldung erfolgreich!')
-        return redirect(url_for('main.display_home'))
+        return redirect(url_for('authentication.do_login_user'))
     
     return render_template('registration.html', form=form)
 
 @auth.route('/login', methods=['GET', 'POST'])
-def login_user():
-    return render_template('login.html')
+def do_login_user():
+
+    form = LoginForm()
+    if form.validate_on_submit():
+        user=User.query.filter_by(user_email=form.email.data).first()
+        if not user or not user.check_passwort(form.passwort.data):
+            flash('Falsche Anmeldedaten!')
+            redirect(url_for('authentication.do_login_user'))
+        
+        login_user(user, remember=True)
+        return redirect(url_for('main.display_filme'))
+
+    return render_template('login.html', form=form)

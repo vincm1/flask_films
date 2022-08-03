@@ -13,15 +13,17 @@
         </head>
     {% endblock head %}
 
-    {% for message in get_flashed_messages() %} 
+    
+
+    {% block body %}
+    <body>
+      {% for message in get_flashed_messages() %} 
         <div class="container aler alert-info">
           <button type="button" classe="close" data-dismiss="alert"></button>
             {{ message }}
         </div>
-    {% endfor %}
+      {% endfor %}
 
-    {% block body %}
-    <body>
       {% block navbar %}
         <nav class="navbar navbar-expand-lg fixed-top navbar-scroll shadow-0" style="background-color: #8A865D;">
           <div class="container">
@@ -40,7 +42,7 @@
                 </li>
                 <li class="nav-item active px-2">
                   <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('main.add_film')}}" >Film hinzufügen</a>
-                  <a type= "button" class="btn btn-outline-secondary" href="" >Login</a>
+                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.do_login_user')}}" >Login</a>
                   <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.register_user')}}" >Anmelden</a>
                 </li>
             </div>
