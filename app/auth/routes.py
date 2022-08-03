@@ -33,3 +33,13 @@ def do_login_user():
         return redirect(url_for('main.display_filme'))
 
     return render_template('login.html', form=form)
+
+@auth.route('/logout')
+@login_required
+def do_logout_user():
+    logout_user()
+    return redirect(url_for('main.display_home'))
+
+@auth.app_errorhandler(404)
+def page_not_found(error):
+    return render_template('404.html'), 404

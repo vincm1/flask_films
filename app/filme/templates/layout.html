@@ -42,8 +42,16 @@
                 </li>
                 <li class="nav-item active px-2">
                   <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('main.add_film')}}" >Film hinzufügen</a>
-                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.do_login_user')}}" >Login</a>
+                  {% if current_user.is_authenticated %}
+                  {% else %} 
                   <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.register_user')}}" >Anmelden</a>
+                  {% endif %}
+                  {% if current_user.is_authenticated %} 
+                  <a type= "button" class="btn btn-outline-secondary" href="" >{{ current_user.user_name.title() }}</a>
+                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.do_logout_user')}}" >Logout</a>
+                  {% else %}
+                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.do_login_user')}}" >Login</a>
+                  {% endif %}
                 </li>
             </div>
           </div>
