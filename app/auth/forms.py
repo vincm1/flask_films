@@ -16,9 +16,9 @@ def check_email(form, field):
 class RegistrationForm(FlaskForm):
     name = StringField('Nutzername', validators=[DataRequired(), Length(3,10, message="Zwischen 3 & 10 Zeichen"), check_name])
     vornachname = StringField('Vor- & Nachname', validators=[DataRequired()])
-    email = StringField('Nutzer-Email', validators=[DataRequired(),Email(), check_email])
+    email = StringField('Email', validators=[DataRequired(),Email(), check_email])
     passwort = PasswordField('Passwort', validators=[DataRequired(), Length(8), EqualTo('confirm_pw'),] )
-    confirm_pw = PasswordField('Confirm', validators=[DataRequired()])
+    confirm_pw = PasswordField('Passwort bestätigen', validators=[DataRequired()])
     submit = SubmitField('Anmelden')
 
 class LoginForm(FlaskForm):

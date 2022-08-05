@@ -1,12 +1,74 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+
 <br>
-    <div class="container">
-        <div class="registrierung-form">
-            {{ form.hidden_tag()}}
-            {{wtf.quick_form(form)}}
-            <p class="pt-5"><strong>{{ message }}</strong></p>
+<br>
+<br>
+
+<div class="container">
+    <section class=" text-center text-lg-start">
+        <style>
+          .rounded-t-5 {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+          }
+      
+          @media (min-width: 992px) {
+            .rounded-tr-lg-0 {
+              border-top-right-radius: 0;
+            }
+      
+            .rounded-bl-lg-5 {
+              border-bottom-left-radius: 0.5rem;
+            }
+          }
+        </style>
+        <div class="card mb-3">
+          <div class="row g-0 d-flex align-items-center">
+            <div class="col-lg-5 d-none d-lg-flex">
+              <img src="https://mdbootstrap.com/img/new/ecommerce/vertical/004.jpg" alt="Trendy Pants and Shoes"
+                class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body py-5 px-md-5">
+      
+                <form method="POST">
+                {{ form.hidden_tag() }}
+                  <!-- User data input -->
+                  <div class="form-heading mb-5" text-align="text-center">
+                    <h4>Mitglied werden</h4>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.name) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.vornachname) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.email) }}
+                  </div>
+      
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.passwort) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.confirm_pw) }}
+                  </div>
+
+                  <!-- Submit button -->
+                  <a class="btn btn-success" href="{{ url_for('authentication.register_user') }}">{{ wtf.form_field(form.submit) }}</a>
+                </form>
+      
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
+      </section>
+</div>
 {% endblock %}

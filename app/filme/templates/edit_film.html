@@ -1,15 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="card mb-3">
-        <img src="static/{{ film.image }}" class="card-img-top" alt="...">
+<br>
+<br>
+<div class="container">
+<form method="post">
+    <div class="card-edit-film p-5" style="width:50rem;">
+        <img class="card-img-top" src="{{ film.image }}" alt="Card image cap">
         <div class="card-body">
-        <h5 class="card-title">{{ film.titel }}</h5>
-        <p class="card-text">
-        {{ form.hidden_tag()}}
-        {{ wtf.quick_form(form) }}
-        </p>
+        {{ form.hidden_tag() }}
+        <h5 class="card-title mb-4">{{ film.titel }}</h5>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.titel) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.regie) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.schauspieler) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.preise) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.jahr) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.laenge) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.rating) }} </div>
+        <div class="form-outline mb-4"> {{ wtf.form_field(form.image) }} </div>
+        <a class="btn btn-success" >{{ wtf.form_field(form.submit) }}</a>   
         <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
         </div>
     </div>
+</form>
+    
+      </div>
+</div>
 {% endblock %}

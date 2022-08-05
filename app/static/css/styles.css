@@ -115,6 +115,49 @@ footer{
   }
 }
 
+/* Cards */
+.card{
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.col-lg-3{
+  margin-top: 40px;
+}
+
+.card-body{
+  margin: 0% 0% 0% 3%;
+  padding: 6% 0%;
+}
+
+.card-text{
+  margin-top: 10px;
+}
+
+.card-buttons{
+    display: inline;
+    height: 2em;
+    width: 100%;
+    border: none;
+}
+
+/* einzelfilm */
+
+.card-einzel{
+  align-content: center;
+  width: 100%;
+  max-width: 200px;
+}
+
+.card-img-top-einzel {
+  flex-grow: 1;
+  object-fit:contain;
+  align-items: center;
+}
+
 /* responsive */
 
 @media only screen and (min-width: 768px) and (max-width: 991px){
@@ -164,14 +207,6 @@ footer{
 
 .btn-outline-secondary:hover{
     color:whitesmoke;
-}
-
-.card{
-    height:fit-content;
-}
-
-.card-body{
-    text-align: center;
 }
 
 .list-group-item-tag{
