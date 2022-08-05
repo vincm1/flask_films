@@ -6,6 +6,11 @@ body{
   background: f1fbff;
 }
 
+footer{
+  font-style: italic;
+  font-size: 12px;
+}
+
 .section-padding{
   padding: 100px 0;
 }
@@ -44,6 +49,10 @@ body{
   z-index: 1;
 }
 
+.nav-item{
+  padding: 2px;
+}
+
 .navbar-nav a{
   font-size: 15px;
   text-transform: uppercase;
@@ -73,6 +82,37 @@ body{
 
 .about-text{
   text-align: center;
+}
+
+/* registrierungsform */
+
+.registrierung-form{
+  margin-top: auto;
+}
+
+/* loginform */
+
+.login-form{
+  margin-top:80px;
+}
+
+.text-center text-lg-start{
+  margin-top: 10px;
+}
+
+.rounded-t-5 {
+  border-top-left-radius: 0.5rem;
+  border-top-right-radius: 0.5rem;
+}
+
+@media (min-width: 992px) {
+  .rounded-tr-lg-0 {
+    border-top-right-radius: 0;
+  }
+
+  .rounded-bl-lg-5 {
+    border-bottom-left-radius: 0.5rem;
+  }
 }
 
 /* responsive */

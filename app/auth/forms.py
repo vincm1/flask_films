@@ -14,7 +14,8 @@ def check_email(form, field):
         raise ValidationError('Email bereits vorhanden!')
 
 class RegistrationForm(FlaskForm):
-    name = StringField('Nutzer-Name', validators=[DataRequired(), Length(3,10, message="Zwischen 3 & 10 Zeichen"), check_name])
+    name = StringField('Nutzername', validators=[DataRequired(), Length(3,10, message="Zwischen 3 & 10 Zeichen"), check_name])
+    vornachname = StringField('Vor- & Nachname', validators=[DataRequired()])
     email = StringField('Nutzer-Email', validators=[DataRequired(),Email(), check_email])
     passwort = PasswordField('Passwort', validators=[DataRequired(), Length(8), EqualTo('confirm_pw'),] )
     confirm_pw = PasswordField('Confirm', validators=[DataRequired()])

@@ -34,60 +34,43 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <li class="nav-item">
-                  <a class="nav-link" href="{{ url_for('main.display_home')}}">Filme</a>
+                  <a class="nav-link" href="{{ url_for('main.display_filme')}}">Alle Filme</a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="#">XY</a>
+                  <a class="btn btn-outline-success" href="{{url_for( 'main.add_film' )}}">Film hinzufügen</a>
+                </li>
+                <li class="nav-item">
+                  {% if current_user.is_authenticated %}
+                  {% else %} 
+                  
+                  {% endif %}
+                  {% if current_user.is_authenticated %} 
+                  
+                  <a type= "button" class="btn btn-secondary" href="" > <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-person" viewBox="0 0 16 16">
+                    <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                  </svg> {{ current_user.user_name.title() }}</a>
+                  <a type= "button" class="btn btn-secondary" href="{{ url_for('authentication.do_logout_user')}}" >Logout</a>
+                  {% else %}
+                  <a type= "button" class="btn btn-secondary" href="{{ url_for('authentication.register_user')}}" >Anmelden</a>
+                  <a type= "button" class="btn btn-secondary" href="{{ url_for('authentication.do_login_user')}}" >Login</a>
+                  {% endif %}
                 </li>
               </ul>
             </div>
           </div>
         </nav>
-
-
-
-        <!-- <nav class="navbar navbar-expand-lg fixed-top navbar-scroll shadow-0" style="background-color: #8A865D;">
-          <div class="container">
-            <img src="static/img/logo-filmtreff.jpg" alt="" height="30px" width="30px">
-            <a class="navbar-brand" href="{{ url_for('main.display_home')}}">Film Treff</a>
-            <button class="navbar-toggler ps-0" type="button" data-mdb-toggle="collapse" data-mdb-target="#navbarExample01"
-              aria-controls="navbarExample01" aria-expanded="false" aria-label="Toggle navigation">
-              <span class="d-flex justify-content-start align-items-center">
-                <i class="fas fa-bars"></i>
-              </span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarExample01">
-              <ul class="navbar-nav  me-auto mb-2 mb-lg-0">
-                <li class="nav-item active">
-                  <a class="nav-link px-2" href="{{ url_for('main.display_filme')}}">Film Community</a>
-                </li>
-                <li class="nav-item active px-2">
-                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('main.add_film')}}" >Film hinzufügen</a>
-                  {% if current_user.is_authenticated %}
-                  {% else %} 
-                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.register_user')}}" >Anmelden</a>
-                  {% endif %}
-                  {% if current_user.is_authenticated %} 
-                  <a type= "button" class="btn btn-outline-secondary" href="" >{{ current_user.user_name.title() }}</a>
-                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.do_logout_user')}}" >Logout</a>
-                  {% else %}
-                  <a type= "button" class="btn btn-outline-secondary" href="{{ url_for('authentication.do_login_user')}}" >Login</a>
-                  {% endif %}
-                </li>
-            </div>
-          </div>
-        </nav>
-        <br>
-        <br> -->
-      {% endblock navbar %}
+    {% endblock navbar %}
 
             {# empty block for custom content #}
-            {% block content %} {% endblock content %}
+    {% block content %} 
+      
+    {% endblock content %}
 
-            {% block footer %}
-            
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
-            {% endblock footer %}
+    {% block footer %}
+  
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+    {% endblock footer %}
     </body>
     {% endblock body %}
     

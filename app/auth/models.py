@@ -7,6 +7,7 @@ class User(UserMixin, db.Model):
     __tablename__ = "users"
 
     id = db.Column(db.Integer, primary_key=True)
+    user_vornachname = db.Column(db.String(100), nullable=False)
     user_name = db.Column(db.String(20), unique=True, nullable=False)
     user_email = db.Column(db.String(100), unique=True)
     user_passwort = db.Column(db.String(80))
@@ -17,8 +18,9 @@ class User(UserMixin, db.Model):
 
     # classmethods gehören zu einer Klasse, aber sind nicht verbunden mit Class Instanzen
     @classmethod
-    def create_user(cls, user, email, passwort):
+    def create_user(cls, user, email, vornachname, passwort):
         user = cls(user_name=user,
+                    user_vornachname=vornachname,
                     user_email=email,
                     user_passwort=bcrypt.generate_password_hash(passwort).decode('utf-8'))
         

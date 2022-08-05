@@ -12,6 +12,7 @@ def register_user():
     if form.validate_on_submit():
         User.create_user(
             user = form.name.data,
+            vornachname= form.vornachname.data,
             email = form.email.data,
             passwort = form.passwort.data)
         flash('Anmeldung erfolgreich!')
