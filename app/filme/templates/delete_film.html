@@ -1,13 +1,29 @@
 {% extends 'layout.html' %}
 
 {% block content %}
-    <div class="container">
-        <div class="card" >
-            <img src="static/{{ film.image }}" alt="">
-            <p> {{ film.titel}} </p>
-            <form action="{{ url_for('main.delete_film', film_id = film.id )}}" method="POST" style="margin-left: 60px">
-                <button type="submit" class="btn btn-danger"> Endgültig löschen? </button>
-            </form>
+<br>
+<br>
+<br>
+<div class="container" >
+    <div class="col-md-3" style="align-items:center">
+        <div class="card">
+            <!--Card image-->
+            <div class="view overlay">
+            <img class="card-img-top" src="{{ film.image }}" alt="Card image cap">
+            <a href="{{ url_for('main.display_film', film_id = film.id )}}">
+            <div class="mask rgba-white-slight"></div></a>
+            </div>
+            <!--Card content-->
+            <div class="card-body">
+            <!--Title-->
+            <h4 class="card-title">{{ film.titel }}</h4>
+            <form action="{{ url_for('main.delete_film', film_id = film.id )}}" method="POST" style="mt-5">
+            <button type="submit" class="btn btn-danger"> Endgültig löschen? </button>
+            <!--Text-->        
+            </div>
         </div>
     </div>
+    </div> 
+</div>
+    
 {% endblock %}

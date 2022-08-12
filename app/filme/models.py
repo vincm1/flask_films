@@ -13,7 +13,7 @@ class Film(db.Model):
     jahr = db.Column(db.Integer)
     schauspieler = db.Column(db.String)
     rating = db.Column(db.Float)
-    image = db.Column(db.String(100), unique=True, nullable=False)
+    image = db.Column(db.String, unique=True, nullable=False)
     
 
     def __init__(self, titel, laenge, regie, preise, jahr, schauspieler, rating, image):
