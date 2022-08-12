@@ -1,29 +1,91 @@
 {% extends 'layout.html' %}
 
 {% block content %}
+
 <br>
 <br>
+<br> 
+
 <div class="container">
-<form method="post">
-    <div class="card-edit-film p-5" style="width:50rem;">
-        <img class="card-img-top" src="{{ film.image }}" alt="Card image cap">
-        <div class="card-body">
-        {{ form.hidden_tag() }}
-        <h5 class="card-title mb-4">{{ film.titel }}</h5>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.titel) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.regie) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.schauspieler) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.preise) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.jahr) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.laenge) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.rating) }} </div>
-        <div class="form-outline mb-4"> {{ wtf.form_field(form.image) }} </div>
-        <a class="btn btn-success" >{{ wtf.form_field(form.submit) }}</a>   
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
+    <section class=" text-center text-lg-start">
+        <style>
+          .rounded-t-5 {
+            border-top-left-radius: 0.5rem;
+            border-top-right-radius: 0.5rem;
+          }
+      
+          @media (min-width: 992px) {
+            .rounded-tr-lg-0 {
+              border-top-right-radius: 0;
+            }
+      
+            .rounded-bl-lg-5 {
+              border-bottom-left-radius: 0.5rem;
+            }
+          }
+        </style>
+        <div class="card mb-3">
+          <div class="row g-0 d-flex align-items-center">
+            <div class="col-lg-5 d-none d-lg-flex">
+              <img src="{{ film.image }}" alt="Trendy Pants and Shoes"
+                class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+            </div>
+            <div class="col-lg-7">
+              <div class="card-body py-5 px-md-5">
+      
+                <form method="POST">
+                {{ form.hidden_tag() }}
+                  <!-- User data input -->
+                  <div class="form-heading mb-5" text-align="text-center">
+                    <h4>{{ film.titel }}</h4>
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.titel) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.regie) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.schauspieler) }}
+                  </div>
+      
+                  <!-- Password input -->
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.preise) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.jahr) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.laenge) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.rating) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.jahr) }}
+                  </div>
+
+                  <div class="form-outline mb-4">
+                    {{ wtf.form_field(form.image) }}
+                  </div>
+                  
+
+                  <!-- Submit button -->
+                  <a class="btn btn-success" >{{ wtf.form_field(form.submit) }}</a>
+                </form>
+      
+              </div>
+            </div>
+          </div>
         </div>
-    </div>
-</form>
-    
-      </div>
+      </section>
 </div>
 {% endblock %}
