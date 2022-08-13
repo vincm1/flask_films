@@ -3,12 +3,55 @@
 {% block content %}
 <br>
 <br>
-    <div class="card-einzel">
-      <img src="{{ film.image }}" class="card-img-top-einzel" alt="...">
-      <div class="card-body">
-        <h5 class="card-title">Card title</h5>
-        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
-        <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p>
-      </div>
-    </div>
+<br>
+<div class="container">
+  <section class=" text-center text-lg-start">
+      <style>
+       
+      </style>
+
+      <div class="card mb-3">
+        <div class="row g-0 d-flex align-items-center">
+          <div class="col-lg-5 d-none d-lg-flex">
+            <img src="{{ film.image }}" alt="Trendy Pants and Shoes"
+              class="w-100 rounded-t-5 rounded-tr-lg-0 rounded-bl-lg-5" />
+          </div>
+          <div class="col-lg-7">
+            <div class="card-body py-5 px-md-5">
+    
+              
+                <div class="heading mb-5" text-align="text-center">
+                  <h4>{{ film.titel }}</h4>
+                </div>
+                  
+                  <div class="text-line mb-4">
+                    <b>Regie:</b>  {{ film.regie }}
+                  </div>
+                
+                  <div class="text-line mb-4">
+                    <b>Besetzung:</b>  {{ film.schauspieler }}
+                  </div>
+
+                  <div class="text-line mb-4">
+                    <b >Auszeichnungen:</b>  {{ film.preise }}
+                  </div>
+  
+                  <div class="text-line mb-4">
+                    <b>Veröffentlichung:</b> {{ film.jahr }}
+                  </div>
+              
+                  <div class="text-line mb-4">
+                    <b>Spiellänge:</b>  {{ film.laenge }}
+                  </div>
+
+                  <div class="text-line mb-4">
+                    <b>ImdB-Rating:</b>  {{ film.rating }}
+                  </div>
+
+                  <div class="text-line mb-4">
+                    <a href="{{ url_for('main.edit_film', film_id = film.id )}}" class="btn btn-secondary">Bearbeiten</a>
+                                <a href="{{ url_for('main.delete_film', film_id = film.id )}}" class="btn btn-danger">Löschen</a>
+                  </div>
+              </div>  
+                
 {% endblock %}
