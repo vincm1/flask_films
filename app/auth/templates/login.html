@@ -7,6 +7,15 @@
 
 <div class="container">
     <section class=" text-center text-lg-start">
+      {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                     {% for message in messages %}
+                     <div class="container alert alert-success" role="alert">
+                            {{ message }}
+                     </div>
+                     {% endfor %}
+              {% endif %}
+      {% endwith %}
         <style>
           .rounded-t-5 {
             border-top-left-radius: 0.5rem;

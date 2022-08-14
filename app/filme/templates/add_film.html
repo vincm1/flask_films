@@ -4,6 +4,15 @@
 <br>
 <br>
 <br>
+       {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                     {% for message in messages %}
+                     <div class="container alert alert-success" role="alert">
+                            {{ message }}
+                     </div>
+                     {% endfor %}
+              {% endif %}
+       {% endwith %}
 
        <div class="container">
               <form class="form form-horizontal" method="post" role="form">
@@ -11,4 +20,5 @@
                      {{ wtf.quick_form(form, button_map={"submit_button":"btn btn-primary"}) }}
               </form>
        </div>
+
 {% endblock %}

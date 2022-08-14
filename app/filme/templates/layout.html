@@ -17,13 +17,6 @@
 
     {% block body %}
     <body>
-      {% for message in get_flashed_messages() %} 
-        <div class="container aler alert-info">
-          <button type="button" classe="close" data-dismiss="alert"></button>
-            {{ message }}
-        </div>
-      {% endfor %}
-
       {% block navbar %}
         <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
           <div class="container">
@@ -60,8 +53,8 @@
           </div>
         </nav>
     {% endblock navbar %}
-
-            {# empty block for custom content #}
+  
+    {# empty block for custom content #}
     {% block content %} 
       
     {% endblock content %}

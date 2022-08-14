@@ -5,6 +5,15 @@
 <br>
 <br>
 <div class="container">
+      {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                     {% for message in messages %}
+                     <div class="container alert alert-success" role="alert">
+                            {{ message }}
+                     </div>
+                     {% endfor %}
+              {% endif %}
+      {% endwith %}
     <section class=" text-center text-lg-start">
         <style>
           .rounded-t-5 {

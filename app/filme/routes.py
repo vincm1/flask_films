@@ -24,7 +24,7 @@ def add_film():
         film = Film(titel=form.titel.data, laenge=form.laenge.data, regie=form.regie.data, jahr=form.jahr.data, schauspieler=form.schauspieler.data, rating=form.rating.data, preise=form.preise.data, image = form.image.data)
         db.session.add(film)
         db.session.commit()
-        flash("Success!")
+        flash("Film erfolgreich hinzugefügt!")
         return redirect (url_for('main.display_filme'))
     return render_template('add_film.html', form=form)
 

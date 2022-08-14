@@ -1,3 +1,4 @@
+from unicodedata import category
 from flask import render_template, flash, request, redirect, url_for
 from app.auth.forms import RegistrationForm, LoginForm
 from app.auth import authentication as auth
@@ -25,7 +26,9 @@ def do_login_user():
 
     form = LoginForm()
     if form.validate_on_submit():
+        
         user=User.query.filter_by(user_email=form.email.data).first()
+        
         if not user or not user.check_passwort(form.passwort.data):
             flash('Falsche Anmeldedaten!')
             redirect(url_for('authentication.do_login_user'))
@@ -39,6 +42,7 @@ def do_login_user():
 @login_required
 def do_logout_user():
     logout_user()
+    flash("Erfolgreich abgemeldet!")
     return redirect(url_for('main.display_home'))
 
 @auth.app_errorhandler(404)
